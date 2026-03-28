@@ -31,11 +31,7 @@ pnpm generate
 
 ## Preset Source
 
-- Source repository: [mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
-- Upstream scheme files: `schemes/*.itermcolors`
-- Upstream previews: `screenshots/*.png`
-- Local presets: **507**
-- Missing upstream screenshots (using fallback image): **24**
+Themes are based on: [mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
 
 ## Screenshots
 
