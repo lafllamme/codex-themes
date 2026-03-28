@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Converts iTerm2 color schemes (.itermcolors) to Codex theme payloads (.json).
+ * Converts iTerm2 color schemes (`.itermcolors`) to Codex theme payloads (`.json`).
  *
  * Input directory:
  *   codex-themes/input/themes-raw/
@@ -8,15 +8,51 @@
  *   codex-themes/output/theme-presets/
  *
  * Usage:
- *   node scripts/convert-iterm2-themes.mjs
+ *   pnpm convert
  */
 
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { assignFontsForTheme } from './font-assignment.mjs'
-import { recommendCodeThemeIdFromPayload } from './code-theme-resolver.mjs'
+import { assignFontsForTheme } from './assign-fonts.ts'
+import { log } from './logger.ts'
+import { recommendCodeThemeIdFromPayload } from './resolve-code-theme-id.ts'
+
+type Variant = 'dark' | 'light'
+
+interface ItermRgb {
+  'Red Component'?: number
+  'Green Component'?: number
+  'Blue Component'?: number
+}
+
+interface ItermTheme {
+  'Background Color'?: ItermRgb
+  'Foreground Color'?: ItermRgb
+  'Ansi 1 Color'?: ItermRgb
+  'Ansi 2 Color'?: ItermRgb
+  'Ansi 4 Color'?: ItermRgb
+  'Ansi 5 Color'?: ItermRgb
+}
+
+interface CodexPayload {
+  codeThemeId: string
+  variant: Variant
+  theme: {
+    accent: string
+    contrast: number
+    fonts: { ui: string | null, code: string | null }
+    ink: string
+    opaqueWindows: boolean
+    semanticColors: {
+      diffAdded: string
+      diffRemoved: string
+      skill: string
+    }
+    surface: string
+  }
+}
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url))
 const TOOLKIT_ROOT = path.join(SCRIPT_DIR, '..')
@@ -25,7 +61,10 @@ const OUTPUT_DIR = path.join(TOOLKIT_ROOT, 'output', 'theme-presets')
 
 fs.mkdirSync(OUTPUT_DIR, { recursive: true })
 
-function rgbToHex(color) {
+/**
+ * Converts iTerm RGB components (0..1) into a normalized hex color.
+ */
+function rgbToHex(color?: ItermRgb): string {
   if (!color)
     return '#000000'
 
@@ -36,7 +75,10 @@ function rgbToHex(color) {
   return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`
 }
 
-function getLuminance(hex) {
+/**
+ * Computes relative luminance (0..1) for a hex color.
+ */
+function getLuminance(hex: string): number {
   const r = parseInt(hex.slice(1, 3), 16) / 255
   const g = parseInt(hex.slice(3, 5), 16) / 255
   const b = parseInt(hex.slice(5, 7), 16) / 255
@@ -48,7 +90,10 @@ function getLuminance(hex) {
   return 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2]
 }
 
-function toKebabCase(name) {
+/**
+ * Converts file names into stable output preset IDs.
+ */
+function toKebabCase(name: string): string {
   return name
     .replace(/\.itermcolors$/, '')
     .replace(/[^\w\s-]/g, '')
@@ -56,11 +101,14 @@ function toKebabCase(name) {
     .toLowerCase()
 }
 
-function convertItermToCodex(itermPath) {
+/**
+ * Converts one `.itermcolors` file into a Codex payload JSON object.
+ */
+function convertItermToCodex(itermPath: string): { id: string, payload: CodexPayload } {
   const jsonText = execFileSync('plutil', ['-convert', 'json', '-o', '-', itermPath], {
     encoding: 'utf8',
   })
-  const data = JSON.parse(jsonText)
+  const data = JSON.parse(jsonText) as ItermTheme
 
   const surface = rgbToHex(data['Background Color'])
   const ink = rgbToHex(data['Foreground Color'])
@@ -69,13 +117,13 @@ function convertItermToCodex(itermPath) {
   const diffRemoved = rgbToHex(data['Ansi 1 Color'])
   const skill = rgbToHex(data['Ansi 5 Color'])
 
-  const variant = getLuminance(surface) < 0.5 ? 'dark' : 'light'
+  const variant: Variant = getLuminance(surface) < 0.5 ? 'dark' : 'light'
 
   const filename = path.basename(itermPath)
   const id = toKebabCase(filename)
   const fonts = assignFontsForTheme(id, variant)
 
-  const payload = {
+  const payload: CodexPayload = {
     codeThemeId: 'monokai',
     variant,
     theme: {
@@ -99,15 +147,15 @@ function convertItermToCodex(itermPath) {
 }
 
 if (!fs.existsSync(ITERM_SCHEMES_DIR)) {
-  console.error(`Input directory not found: ${ITERM_SCHEMES_DIR}`)
-  console.error('Create it and place .itermcolors files inside.')
+  log.error(`Input directory not found: ${ITERM_SCHEMES_DIR}`)
+  log.info('Create it and place .itermcolors files inside.')
   process.exit(1)
 }
 
 const itermFiles = fs.readdirSync(ITERM_SCHEMES_DIR)
   .filter(file => file.endsWith('.itermcolors'))
 
-console.log(`Found ${itermFiles.length} iTerm2 color schemes to convert`)
+log.info(`Found ${itermFiles.length} iTerm2 color schemes to convert`)
 
 let converted = 0
 let updated = 0
@@ -129,13 +177,17 @@ for (const file of itermFiles) {
       converted++
   }
   catch (error) {
-    console.error(`Error converting ${file}: ${error.message}`)
+    const message = error instanceof Error ? error.message : String(error)
+    log.error(`Error converting ${file}: ${message}`)
     errors++
   }
 }
 
-console.log('\nDone!')
-console.log(`New themes: ${converted}`)
-console.log(`Updated: ${updated}`)
-console.log(`Errors: ${errors}`)
-console.log(`Output: ${OUTPUT_DIR}`)
+log.success('Done.')
+log.info(`New themes: ${converted}`)
+log.info(`Updated: ${updated}`)
+if (errors > 0)
+  log.warn(`Errors: ${errors}`)
+else
+  log.success('Errors: 0')
+log.info(`Output: ${OUTPUT_DIR}`)

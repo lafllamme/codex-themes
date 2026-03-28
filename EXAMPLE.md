@@ -1,6 +1,6 @@
-# Example: Quick Script Check
+# Example: Quick Pipeline Check
 
-This toolkit already includes one sample source file:
+A sample source file is already included:
 
 - `input/themes-raw/example-ayu.itermcolors`
 
@@ -9,28 +9,19 @@ This toolkit already includes one sample source file:
 From inside `codex-themes/`:
 
 ```bash
-node scripts/generate.mjs convert
+pnpm convert
 ```
 
-## Expected Result
+## Expected Output
 
-You should see output logs like:
+You should see conversion logs and generated files in:
 
-- `Found ... iTerm2 color schemes to convert`
-- `Done!`
+- `output/theme-presets/` (for example: `ayu-iterm.json`)
 
-And generated/updated JSON files in:
-
-- `output/theme-presets/`
-
-A concrete file to check after the run:
-
-- `output/theme-presets/example-ayu.json`
-
-## Optional Full Validation
+## Full Validation
 
 ```bash
-node scripts/generate.mjs all
+pnpm generate
 ```
 
-This runs convert + re-score + smoke test.
+This runs convert + rescore + smoke test.

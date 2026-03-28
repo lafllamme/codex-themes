@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict'
-import { recommendCodeThemeIdFromPayload } from './code-theme-resolver.mjs'
+import { log } from './logger.ts'
+import { recommendCodeThemeIdFromPayload } from './resolve-code-theme-id.ts'
 
+/**
+ * Lightweight smoke test for resolver stability across dark/light payloads.
+ */
 const darkBluePayload = {
   codeThemeId: 'monokai',
   variant: 'dark',
@@ -38,6 +42,6 @@ assert.ok(typeof lightResult === 'string' && lightResult.length > 0)
 assert.notEqual(darkResult, undefined)
 assert.notEqual(lightResult, undefined)
 
-console.log('code-theme-resolver tests passed')
-console.log(`dark payload -> ${darkResult}`)
-console.log(`light payload -> ${lightResult}`)
+log.success('resolve-code-theme-id smoke test passed')
+log.info(`dark payload -> ${darkResult}`)
+log.info(`light payload -> ${lightResult}`)

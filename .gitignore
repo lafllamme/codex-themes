@@ -1,0 +1,45 @@
+# Dependencies
+# Installed packages (always regenerate via lockfile)
+node_modules/
+
+# Package manager
+# Keep lockfile committed for reproducible installs
+# (pnpm-lock.yaml should stay in git)
+
+# Logs & runtime output
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript / tool caches
+*.tsbuildinfo
+.eslintcache
+
+# Build / distribution artifacts
+# Keep generated theme JSON outputs if they are part of the repo contract.
+# Ignore temporary build folders only.
+dist/
+build/
+coverage/
+
+# Environment files
+# Commit only example env files if needed
+.env
+.env.*
+!.env.example
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+.tmp/
+tmp/

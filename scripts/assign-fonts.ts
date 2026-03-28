@@ -2,6 +2,15 @@
  * Deterministic font assignment for generated (iTerm-converted) themes.
  * Scope: generator-side only, does not touch curated Codex presets.
  */
+export interface AssignedFonts {
+  ui: string | null
+  code: string | null
+}
+
+interface WeightedFontOption {
+  value: string | null
+  weight: number
+}
 
 const SYSTEM_SANS_STACK = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
 const SYSTEM_MONO_STACK = 'ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace'
@@ -57,7 +66,7 @@ function makeRng(seed) {
   }
 }
 
-function pickWeighted(pool, rng) {
+function pickWeighted(pool: WeightedFontOption[], rng: () => number): string | null {
   const total = pool.reduce((sum, item) => sum + item.weight, 0)
   let needle = rng() * total
   for (const item of pool) {
@@ -68,11 +77,14 @@ function pickWeighted(pool, rng) {
   return pool[pool.length - 1].value
 }
 
-function isMonoFont(value) {
+function isMonoFont(value: string | null): boolean {
   return typeof value === 'string' && /monospace|mono/i.test(value)
 }
 
-export function assignFontsForTheme(themeId, variant = 'dark') {
+/**
+ * Returns deterministic UI/code font stacks for a theme id + variant.
+ */
+export function assignFontsForTheme(themeId: string, variant = 'dark'): AssignedFonts {
   const baseSeed = fnv1a32(`${themeId}:${variant}`)
   const uiRng = makeRng(baseSeed ^ 0xA1B2C3D4)
   const codeRng = makeRng(baseSeed ^ 0xC3D4E5F6)

@@ -2,13 +2,18 @@
 import fs from 'node:fs'
 import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { recommendCodeThemeIdFromPayload } from './code-theme-resolver.mjs'
+import { log } from './logger.ts'
+import { recommendCodeThemeIdFromPayload } from './resolve-code-theme-id.ts'
 
+/**
+ * Re-evaluates generated presets and normalizes `codeThemeId` values.
+ */
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url))
 const PRESETS_DIR = path.join(SCRIPT_DIR, '..', 'output', 'theme-presets')
 
 if (!fs.existsSync(PRESETS_DIR)) {
-  throw new Error(`Preset directory not found: ${PRESETS_DIR}`)
+  log.error(`Preset directory not found: ${PRESETS_DIR}`)
+  process.exit(1)
 }
 
 const files = fs.readdirSync(PRESETS_DIR)
@@ -28,7 +33,9 @@ for (const file of files) {
     payload = JSON.parse(raw)
   }
   catch (error) {
-    throw new Error(`Invalid JSON in ${file}: ${error.message}`)
+    const message = error instanceof Error ? error.message : String(error)
+    log.error(`Invalid JSON in ${file}: ${message}`)
+    process.exit(1)
   }
 
   const current = typeof payload.codeThemeId === 'string' ? payload.codeThemeId : ''
@@ -46,10 +53,10 @@ for (const file of files) {
   changed++
 }
 
-console.log(`Processed ${files.length} presets`)
-console.log(`Changed: ${changed}`)
-console.log(`Unchanged: ${unchanged}`)
-console.log('By target theme:')
+log.info(`Processed ${files.length} presets`)
+log.info(`Changed: ${changed}`)
+log.info(`Unchanged: ${unchanged}`)
+log.step('By target theme')
 for (const [theme, count] of [...byTargetTheme.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
-  console.log(`  ${theme}: ${count}`)
+  log.info(`${theme}: ${count}`)
 }
