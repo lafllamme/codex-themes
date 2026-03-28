@@ -20,6 +20,7 @@ yarn-error.log*
 # Build / distribution artifacts
 # Keep generated theme JSON outputs if they are part of the repo contract.
 # Ignore temporary build folders only.
+THEMES.md
 dist/
 build/
 coverage/
