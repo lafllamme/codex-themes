@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "temple",
+  "variant": "dark",
+  "theme": {
+    "accent": "#145fcd",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Satoshi",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#0b0b0b",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#bafc8b",
+      "diffRemoved": "#a80f20",
+      "skill": "#ff36a2"
+    },
+    "surface": "#ff8cd9"
+  }
+}

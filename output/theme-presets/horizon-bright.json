@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "dracula",
+  "variant": "light",
+  "theme": {
+    "accent": "#26bbd9",
+    "contrast": 60,
+    "fonts": {
+      "ui": null,
+      "code": null
+    },
+    "ink": "#16161c",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#29d398",
+      "diffRemoved": "#e95678",
+      "skill": "#ee64ae"
+    },
+    "surface": "#fbf0ee"
+  }
+}

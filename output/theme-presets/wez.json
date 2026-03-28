@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "github",
+  "variant": "dark",
+  "theme": {
+    "accent": "#5555cc",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Satoshi",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#b3b3b3",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#55cc55",
+      "diffRemoved": "#cc5555",
+      "skill": "#cc55cc"
+    },
+    "surface": "#000000"
+  }
+}

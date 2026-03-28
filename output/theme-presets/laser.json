@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "github",
+  "variant": "dark",
+  "theme": {
+    "accent": "#fed300",
+    "contrast": 60,
+    "fonts": {
+      "ui": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "code": "\"Lucida Console\", Monaco, monospace"
+    },
+    "ink": "#f106e3",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#b4fb73",
+      "diffRemoved": "#ff8373",
+      "skill": "#ff90fe"
+    },
+    "surface": "#030d18"
+  }
+}

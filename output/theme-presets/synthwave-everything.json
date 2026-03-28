@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "matrix",
+  "variant": "dark",
+  "theme": {
+    "accent": "#6d77b3",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Satoshi",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#f0eff1",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#72f1b8",
+      "diffRemoved": "#f97e72",
+      "skill": "#c792ea"
+    },
+    "surface": "#2a2139"
+  }
+}

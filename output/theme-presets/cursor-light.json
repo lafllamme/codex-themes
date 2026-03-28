@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "solarized",
+  "variant": "light",
+  "theme": {
+    "accent": "#3c7cab",
+    "contrast": 60,
+    "fonts": {
+      "ui": null,
+      "code": null
+    },
+    "ink": "#252525",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#1f8a65",
+      "diffRemoved": "#cf2d56",
+      "skill": "#b8448b"
+    },
+    "surface": "#f3f3f3"
+  }
+}

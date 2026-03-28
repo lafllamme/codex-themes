@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "nord",
+  "variant": "light",
+  "theme": {
+    "accent": "#004c73",
+    "contrast": 60,
+    "fonts": {
+      "ui": null,
+      "code": null
+    },
+    "ink": "#14161b",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#005523",
+      "diffRemoved": "#590008",
+      "skill": "#470045"
+    },
+    "surface": "#e0e2ea"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "temple",
+  "variant": "dark",
+  "theme": {
+    "accent": "#6a8e95",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Arial, Helvetica, sans-serif",
+      "code": null
+    },
+    "ink": "#ececec",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#66907d",
+      "diffRemoved": "#865f5b",
+      "skill": "#b18a73"
+    },
+    "surface": "#2c3941"
+  }
+}

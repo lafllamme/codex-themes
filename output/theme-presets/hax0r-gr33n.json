@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "github",
+  "variant": "dark",
+  "theme": {
+    "accent": "#15d00d",
+    "contrast": 60,
+    "fonts": {
+      "ui": null,
+      "code": null
+    },
+    "ink": "#16b10e",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#15d00d",
+      "diffRemoved": "#15d00d",
+      "skill": "#15d00d"
+    },
+    "surface": "#020f01"
+  }
+}

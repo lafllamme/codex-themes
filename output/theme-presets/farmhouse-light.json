@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "rose-pine",
+  "variant": "light",
+  "theme": {
+    "accent": "#092ccd",
+    "contrast": 60,
+    "fonts": {
+      "ui": null,
+      "code": null
+    },
+    "ink": "#1d2027",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#3a7d00",
+      "diffRemoved": "#8d0003",
+      "skill": "#820046"
+    },
+    "surface": "#e8e4e1"
+  }
+}

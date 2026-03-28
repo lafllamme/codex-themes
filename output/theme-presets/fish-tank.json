@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "matrix",
+  "variant": "dark",
+  "theme": {
+    "accent": "#525fb8",
+    "contrast": 60,
+    "fonts": {
+      "ui": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "code": "Consolas, \"Courier New\", monospace"
+    },
+    "ink": "#ecf0fe",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#acf157",
+      "diffRemoved": "#c6004a",
+      "skill": "#986f82"
+    },
+    "surface": "#232537"
+  }
+}

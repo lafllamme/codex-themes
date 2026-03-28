@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "catppuccin",
+  "variant": "dark",
+  "theme": {
+    "accent": "#616bb0",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Inter",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#cac296",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#7c8b16",
+      "diffRemoved": "#b64c00",
+      "skill": "#8c5a90"
+    },
+    "surface": "#1d1908"
+  }
+}

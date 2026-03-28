@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "temple",
+  "variant": "dark",
+  "theme": {
+    "accent": "#6c99bb",
+    "contrast": 60,
+    "fonts": {
+      "ui": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "code": "Menlo, Monaco, \"Courier New\", monospace"
+    },
+    "ink": "#ffffff",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#a5c261",
+      "diffRemoved": "#d25252",
+      "skill": "#d197d9"
+    },
+    "surface": "#323232"
+  }
+}

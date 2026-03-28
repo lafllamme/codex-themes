@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "matrix",
+  "variant": "dark",
+  "theme": {
+    "accent": "#c2ffdf",
+    "contrast": 60,
+    "fonts": {
+      "ui": null,
+      "code": null
+    },
+    "ink": "#f8f8f2",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#c2ffdf",
+      "diffRemoved": "#f92672",
+      "skill": "#ffb8d1"
+    },
+    "surface": "#5a5475"
+  }
+}

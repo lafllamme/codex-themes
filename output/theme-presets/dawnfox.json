@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "rose-pine",
+  "variant": "light",
+  "theme": {
+    "accent": "#286983",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Satoshi",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#575279",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#618774",
+      "diffRemoved": "#b4637a",
+      "skill": "#907aa9"
+    },
+    "surface": "#faf4ed"
+  }
+}

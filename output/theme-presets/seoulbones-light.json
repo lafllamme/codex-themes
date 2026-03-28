@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "monokai",
+  "variant": "light",
+  "theme": {
+    "accent": "#0084a3",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Inter",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#555555",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#628562",
+      "diffRemoved": "#dc5284",
+      "skill": "#896788"
+    },
+    "surface": "#e2e2e2"
+  }
+}

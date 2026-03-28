@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "catppuccin",
+  "variant": "dark",
+  "theme": {
+    "accent": "#2c3fff",
+    "contrast": 60,
+    "fonts": {
+      "ui": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "code": null
+    },
+    "ink": "#e3e3e3",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#e22928",
+      "diffRemoved": "#e60813",
+      "skill": "#2435db"
+    },
+    "surface": "#1b1d1e"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "solarized",
+  "variant": "light",
+  "theme": {
+    "accent": "#0f58bd",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Satoshi",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#0a2540",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#0fbd49",
+      "diffRemoved": "#bd0f0f",
+      "skill": "#bd0fbd"
+    },
+    "surface": "#ffffff"
+  }
+}

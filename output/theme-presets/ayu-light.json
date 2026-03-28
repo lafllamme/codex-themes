@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "solarized",
+  "variant": "light",
+  "theme": {
+    "accent": "#3199e1",
+    "contrast": 60,
+    "fonts": {
+      "ui": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "code": null
+    },
+    "ink": "#5c6166",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#6cbf43",
+      "diffRemoved": "#ea6c6d",
+      "skill": "#9e75c7"
+    },
+    "surface": "#f8f9fa"
+  }
+}

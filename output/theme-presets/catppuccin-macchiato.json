@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "matrix",
+  "variant": "dark",
+  "theme": {
+    "accent": "#8aadf4",
+    "contrast": 60,
+    "fonts": {
+      "ui": "Inter",
+      "code": "Consolas, \"Courier New\", monospace"
+    },
+    "ink": "#cad3f5",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#a6da95",
+      "diffRemoved": "#ed8796",
+      "skill": "#f5bde6"
+    },
+    "surface": "#24273a"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "codeThemeId": "matrix",
+  "variant": "dark",
+  "theme": {
+    "accent": "#1e80f0",
+    "contrast": 60,
+    "fonts": {
+      "ui": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace",
+      "code": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+    },
+    "ink": "#c2c8d7",
+    "opaqueWindows": true,
+    "semanticColors": {
+      "diffAdded": "#40a33f",
+      "diffRemoved": "#ee2b2a",
+      "skill": "#8800a0"
+    },
+    "surface": "#1c262b"
+  }
+}
