@@ -2062,3 +2062,7 @@ Themes are based on: [mbadolato/iTerm2-Color-Schemes](https://github.com/mbadola
 ### Zenwritten Light
 
 ![Screenshot](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/screenshots/zenwritten-light.png)
+
+---
+
+Made with love by [Laflamme](https://github.com/lafllamme).
